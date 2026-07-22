@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Large model weights (optional - remove this line if you WANT to commit
+# your weights file to git; many teams instead upload it as a GitHub
+# Release asset or use Git LFS since model files can be large)
+# models/weights/best.pt
+
+# Script output
+scripts/output_annotated.jpg

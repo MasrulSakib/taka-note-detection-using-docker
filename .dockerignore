@@ -1,0 +1,17 @@
+# Don't copy these into the Docker image - they're not needed to run the API
+# and would only make the image bigger / slower to build.
+
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.git/
+.gitignore
+tests/
+scripts/
+docs/
+*.ipynb
+.pytest_cache/
+.DS_Store
+README.md
