@@ -134,6 +134,14 @@ docker compose up -d --build
 
 ---
 
+## 📖 Detailed Documentation
+
+For a comprehensive guide covering Docker builds, container management, API usage examples in multiple languages, and troubleshooting, see:
+
+👉 **[Deployment & API Usage Guide](docs/DEPLOYMENT.md)**
+
+---
+
 ## ⚙️ Configuration (.env)
 
 | Environment Variable | Default | Description |
