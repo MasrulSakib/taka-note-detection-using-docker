@@ -52,7 +52,7 @@ pip install -r requirements.txt
 Run detection on a single sample image and generate an annotated output image:
 
 ```bash
-python scripts/inference_demo.py --image tests/sample_images/sample_1.jpg
+python scripts/inference_demo.py --image tests/sample_images/Note-Image-16-_jpeg.rf.457e59c3af0f241758329414b33379bc.jpg
 ```
 
 ---
@@ -73,19 +73,19 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 ```bash
 curl -X POST "http://localhost:8000/predict" \
-  -F "file=@tests/sample_images/sample_1.jpg"
+  -F "file=@tests/sample_images/Note-Image-16-_jpeg.rf.457e59c3af0f241758329414b33379bc.jpg"
 ```
 
 #### Sample JSON Response
 
 ```json
 {
-  "filename": "sample_1.jpg",
+  "filename": "Note-Image-16-_jpeg.rf.457e59c3af0f241758329414b33379bc.jpg",
   "num_detections": 1,
   "detections": [
     {
-      "class_name": "500taka",
-      "confidence": 0.932,
+      "class_name": "500_tk",
+      "confidence": 0.7036,
       "bbox": {
         "x1": 80.12,
         "y1": 193.68,
@@ -94,7 +94,7 @@ curl -X POST "http://localhost:8000/predict" \
       }
     }
   ],
-  "inference_time_ms": 75.2
+  "inference_time_ms": 79.93
 }
 ```
 
@@ -144,10 +144,10 @@ For a comprehensive guide covering Docker builds, container management, API usag
 
 ## ⚙️ Configuration (.env)
 
-| Environment Variable | Default | Description |
-| :--- | :--- | :--- |
-| `HOST` | `0.0.0.0` | API bind address |
-| `PORT` | `8000` | API server port |
-| `MODEL_PATH` | `models/weights/best.pt` | Path to YOLOv11 model weights |
-| `CONFIDENCE_THRESHOLD` | `0.25` | Minimum detection confidence score |
-| `IMAGE_SIZE` | `640` | YOLO image input dimension |
+| Environment Variable   | Default                  | Description                        |
+| :--------------------- | :----------------------- | :--------------------------------- |
+| `HOST`                 | `0.0.0.0`                | API bind address                   |
+| `PORT`                 | `8000`                   | API server port                    |
+| `MODEL_PATH`           | `models/weights/best.pt` | Path to YOLOv11 model weights      |
+| `CONFIDENCE_THRESHOLD` | `0.25`                   | Minimum detection confidence score |
+| `IMAGE_SIZE`           | `640`                    | YOLO image input dimension         |
