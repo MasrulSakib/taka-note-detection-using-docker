@@ -1,3 +1,19 @@
+# ==============================================================================
+# Bangladeshi Taka Note Detection API Docker Compose Configuration
+#
+# 1. How to build and run the services:
+#    docker compose up -d --build
+#
+# 2. How to stop the services:
+#    docker compose down
+#
+# 3. How to use the API endpoint:
+#    - Interactive API Docs: http://localhost:8000/docs
+#    - Prediction endpoint: POST http://localhost:8000/predict
+#      Example curl command:
+#        curl -X POST "http://localhost:8000/predict" -F "file=@path/to/image.jpg"
+# ==============================================================================
+
 services:
   app:
     build: .

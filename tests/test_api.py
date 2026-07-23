@@ -1,3 +1,22 @@
+"""
+Bangladeshi Taka Note Detection API Test Suite
+
+Prerequisites:
+  The API container/server must be running (normally at http://localhost:8000).
+
+How to build the Docker image:
+  docker build -t taka-note-detector .
+
+How to run the container:
+  docker run -d -p 8000:8000 --name taka-api taka-note-detector
+
+How to run these tests:
+  python tests/test_api.py
+
+How to use the API endpoint (manual command):
+  curl -X POST "http://localhost:8000/predict" -F "file=@path/to/image.jpg"
+"""
+
 import glob
 import os
 import sys

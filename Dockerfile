@@ -1,3 +1,19 @@
+# ==============================================================================
+# Bangladeshi Taka Note Detection API Dockerfile
+#
+# 1. How to build this Docker image:
+#    docker build -t taka-note-detector .
+#
+# 2. How to run the container:
+#    docker run -d -p 8000:8000 --name taka-api taka-note-detector
+#
+# 3. How to use the API endpoint:
+#    - Interactive API Docs: http://localhost:8000/docs
+#    - Prediction endpoint: POST http://localhost:8000/predict
+#      Example curl command:
+#        curl -X POST "http://localhost:8000/predict" -F "file=@path/to/image.jpg"
+# ==============================================================================
+
 FROM python:3.10-slim
 
 WORKDIR /app
