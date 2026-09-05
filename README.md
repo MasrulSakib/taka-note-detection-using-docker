@@ -151,3 +151,9 @@ For a comprehensive guide covering Docker builds, container management, API usag
 | `MODEL_PATH`           | `models/weights/best.pt` | Path to YOLOv11 model weights      |
 | `CONFIDENCE_THRESHOLD` | `0.25`                   | Minimum detection confidence score |
 | `IMAGE_SIZE`           | `640`                    | YOLO image input dimension         |
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
