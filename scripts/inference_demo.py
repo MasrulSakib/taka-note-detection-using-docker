@@ -1,19 +1,3 @@
-"""
-Bangladeshi Taka Note Detection CLI Inference Demo
-
-To run single image local CLI inference:
-  python scripts/inference_demo.py --image path/to/image.jpg
-
-To build the Docker image:
-  docker build -t taka-note-detector .
-
-To run the Docker container:
-  docker run -d -p 8000:8000 --name taka-api taka-note-detector
-
-To use the API endpoint:
-  curl -X POST "http://localhost:8000/predict" -F "file=@path/to/image.jpg"
-"""
-
 import argparse
 import json
 import os

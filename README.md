@@ -1,10 +1,8 @@
 # Bangladeshi Taka Note Detection — REST API & Docker Deployment
 
-A lightweight, beginner-friendly REST API for detecting Bangladeshi Taka banknotes using a trained **YOLOv11** model, built with **FastAPI** and containerized with **Docker**.
+A lightweight REST API for detecting Bangladeshi Taka banknotes with a trained **YOLOv11** model. The API is built with **FastAPI** and can be run locally or packaged with **Docker**.
 
----
-
-## 📁 Project Structure
+## Project Structure
 
 ```text
 taka-note-detector/
@@ -29,11 +27,11 @@ taka-note-detector/
 └── README.md               # Documentation (Task 5)
 ```
 
----
+## Getting Started
 
-## 🚀 Quick Start Guide
+### 1. Set Up the Project Locally
 
-### 1. Local Setup
+Create a virtual environment and install the required dependencies.
 
 ```bash
 # Create and activate virtual environment
@@ -45,38 +43,40 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
----
+### 2. Run Single-Image Inference
 
-### 2. Task 1 — Single Image Inference Demo
-
-Run detection on a single sample image and generate an annotated output image:
+To test the trained model directly, run the inference script with one of the sample images. The script generates an annotated output image with the detected note.
 
 ```bash
 python scripts/inference_demo.py --image tests/sample_images/Note-Image-16-_jpeg.rf.457e59c3af0f241758329414b33379bc.jpg
 ```
 
----
+### 3. Start the REST API
 
-### 3. Task 2 — Running the REST API
-
-Start the FastAPI development server:
+Launch the FastAPI development server with:
 
 ```bash
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-- **Interactive API Docs (Swagger)**: Access `http://localhost:8000/docs` in your browser.
-- **Health Check**: `GET http://localhost:8000/health`
-- **Predict Endpoint**: `POST http://localhost:8000/predict`
+Once the server is running, you can use the following endpoints:
 
-#### Sample `curl` Request
+- **Swagger API Docs:** `http://localhost:8000/docs`
+- **Health Check:** `GET http://localhost:8000/health`
+- **Prediction:** `POST http://localhost:8000/predict`
+
+#### Example Request
+
+You can send an image to the prediction endpoint with `curl`:
 
 ```bash
 curl -X POST "http://localhost:8000/predict" \
   -F "file=@tests/sample_images/Note-Image-16-_jpeg.rf.457e59c3af0f241758329414b33379bc.jpg"
 ```
 
-#### Sample JSON Response
+#### Example Response
+
+A successful prediction returns JSON similar to this:
 
 ```json
 {
@@ -98,51 +98,45 @@ curl -X POST "http://localhost:8000/predict" \
 }
 ```
 
----
+### 4. Test the API
 
-### 4. Task 3 — API Testing & Validation
-
-Ensure the API server is running, then execute the test suite:
+Make sure the API server is running before executing the test suite:
 
 ```bash
 python tests/test_api.py
 ```
 
-This tests endpoint responsiveness, valid image predictions, and error handling for invalid/missing files.
+The tests cover API responsiveness, predictions for valid images, and error handling for invalid or missing files.
 
----
+### 5. Run with Docker
 
-### 5. Task 4 — Dockerization
-
-#### Build the Docker Image
+Build the Docker image with:
 
 ```bash
 docker build -t taka-note-detector .
 ```
 
-#### Run the Container
+Then start the container:
 
 ```bash
 docker run -d -p 8000:8000 --name taka-api taka-note-detector
 ```
 
-#### Or using Docker Compose:
+You can also use Docker Compose:
 
 ```bash
 docker compose up -d --build
 ```
 
----
+## Detailed Documentation
 
-## 📖 Detailed Documentation
+More detailed information about Docker deployment, container management, API usage with different programming languages, and troubleshooting is available here:
 
-For a comprehensive guide covering Docker builds, container management, API usage examples in multiple languages, and troubleshooting, see:
+**[Deployment & API Usage Guide](docs/DEPLOYMENT.md)**
 
-👉 **[Deployment & API Usage Guide](docs/DEPLOYMENT.md)**
+## Configuration
 
----
-
-## ⚙️ Configuration (.env)
+The application reads its main settings from environment variables:
 
 | Environment Variable   | Default                  | Description                        |
 | :--------------------- | :----------------------- | :--------------------------------- |
@@ -151,8 +145,6 @@ For a comprehensive guide covering Docker builds, container management, API usag
 | `MODEL_PATH`           | `models/weights/best.pt` | Path to YOLOv11 model weights      |
 | `CONFIDENCE_THRESHOLD` | `0.25`                   | Minimum detection confidence score |
 | `IMAGE_SIZE`           | `640`                    | YOLO image input dimension         |
-
----
 
 ## License
 

@@ -1,11 +1,9 @@
 # --- Web API framework ---
 fastapi==0.115.0
 uvicorn[standard]==0.30.6
-python-multipart==0.0.9      # required by FastAPI to parse uploaded files
+python-multipart==0.0.9
 
 # --- Model / computer vision ---
-ultralytics==8.3.28           # provides the YOLO class used to load & run YOLOv11
-Pillow==10.4.0                # image loading, drawing bounding boxes
-
-# --- Used only by the testing script (tests/test_api.py) ---
+ultralytics==8.3.28
+Pillow==10.4.0
 requests==2.32.3
